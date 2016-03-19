@@ -1786,6 +1786,7 @@ class FakePubSub(object):
                 if channel in subscribed_dict:
                     total_subscriptions -= 1
                     self.put(channel, long(total_subscriptions), message_type)
+                    del subscribed_dict[channel]
         else:
             for channel in subscribed_dict:
                 total_subscriptions -= 1
